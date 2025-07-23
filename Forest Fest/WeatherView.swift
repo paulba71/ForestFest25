@@ -2,86 +2,7 @@ import SwiftUI
 
 struct WeatherView: View {
     @Environment(\.presentationMode) var presentationMode
-    
-    // Sample weather data for Forest Fest weekend (July 25-27, 2025)
-    // In a real app, this would come from a weather API
-    private let weatherData: [DayWeather] = [
-        DayWeather(
-            date: "Friday, July 25",
-            dayOfWeek: "Friday",
-            highTemp: 18,
-            lowTemp: 12,
-            condition: "Partly Cloudy",
-            icon: "cloud.sun.fill",
-            hourlyForecast: [
-                HourlyWeather(time: "12:00", temp: 15, condition: "Cloudy", icon: "cloud.fill"),
-                HourlyWeather(time: "13:00", temp: 16, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "14:00", temp: 17, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "15:00", temp: 17, condition: "Sunny", icon: "sun.max.fill"),
-                HourlyWeather(time: "16:00", temp: 18, condition: "Sunny", icon: "sun.max.fill"),
-                HourlyWeather(time: "17:00", temp: 17, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "18:00", temp: 16, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "19:00", temp: 15, condition: "Cloudy", icon: "cloud.fill"),
-                HourlyWeather(time: "20:00", temp: 14, condition: "Cloudy", icon: "cloud.fill"),
-                HourlyWeather(time: "21:00", temp: 13, condition: "Partly Cloudy", icon: "cloud.moon.fill"),
-                HourlyWeather(time: "22:00", temp: 12, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "23:00", temp: 12, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "00:00", temp: 11, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "01:00", temp: 11, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "02:00", temp: 10, condition: "Clear", icon: "moon.fill")
-            ]
-        ),
-        DayWeather(
-            date: "Saturday, July 26",
-            dayOfWeek: "Saturday",
-            highTemp: 20,
-            lowTemp: 13,
-            condition: "Sunny",
-            icon: "sun.max.fill",
-            hourlyForecast: [
-                HourlyWeather(time: "12:00", temp: 16, condition: "Sunny", icon: "sun.max.fill"),
-                HourlyWeather(time: "13:00", temp: 17, condition: "Sunny", icon: "sun.max.fill"),
-                HourlyWeather(time: "14:00", temp: 18, condition: "Sunny", icon: "sun.max.fill"),
-                HourlyWeather(time: "15:00", temp: 19, condition: "Sunny", icon: "sun.max.fill"),
-                HourlyWeather(time: "16:00", temp: 20, condition: "Sunny", icon: "sun.max.fill"),
-                HourlyWeather(time: "17:00", temp: 19, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "18:00", temp: 18, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "19:00", temp: 17, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "20:00", temp: 16, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "21:00", temp: 15, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "22:00", temp: 14, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "23:00", temp: 13, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "00:00", temp: 13, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "01:00", temp: 13, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "02:00", temp: 12, condition: "Clear", icon: "moon.fill")
-            ]
-        ),
-        DayWeather(
-            date: "Sunday, July 27",
-            dayOfWeek: "Sunday",
-            highTemp: 19,
-            lowTemp: 11,
-            condition: "Light Rain",
-            icon: "cloud.rain.fill",
-            hourlyForecast: [
-                HourlyWeather(time: "12:00", temp: 15, condition: "Light Rain", icon: "cloud.rain.fill"),
-                HourlyWeather(time: "13:00", temp: 16, condition: "Light Rain", icon: "cloud.rain.fill"),
-                HourlyWeather(time: "14:00", temp: 17, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "15:00", temp: 18, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "16:00", temp: 19, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "17:00", temp: 18, condition: "Partly Cloudy", icon: "cloud.sun.fill"),
-                HourlyWeather(time: "18:00", temp: 17, condition: "Cloudy", icon: "cloud.fill"),
-                HourlyWeather(time: "19:00", temp: 16, condition: "Light Rain", icon: "cloud.rain.fill"),
-                HourlyWeather(time: "20:00", temp: 15, condition: "Light Rain", icon: "cloud.rain.fill"),
-                HourlyWeather(time: "21:00", temp: 14, condition: "Cloudy", icon: "cloud.fill"),
-                HourlyWeather(time: "22:00", temp: 13, condition: "Partly Cloudy", icon: "cloud.moon.fill"),
-                HourlyWeather(time: "23:00", temp: 12, condition: "Partly Cloudy", icon: "cloud.moon.fill"),
-                HourlyWeather(time: "00:00", temp: 11, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "01:00", temp: 11, condition: "Clear", icon: "moon.fill"),
-                HourlyWeather(time: "02:00", temp: 11, condition: "Clear", icon: "moon.fill")
-            ]
-        )
-    ]
+    @StateObject private var weatherService = WeatherService()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -105,67 +26,128 @@ struct WeatherView: View {
                 Spacer()
                 
                 Button(action: {
-                    // Refresh weather data
+                    weatherService.fetchWeatherData()
                 }) {
                     Image(systemName: "arrow.clockwise")
                         .foregroundColor(.white)
                         .imageScale(.large)
+                        .rotationEffect(.degrees(weatherService.isLoading ? 360 : 0))
+                        .animation(weatherService.isLoading ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default, value: weatherService.isLoading)
                 }
+                .disabled(weatherService.isLoading)
             }
             .padding()
             .background(Color.black.opacity(0.2))
             
-            ScrollView {
+            if weatherService.isLoading {
+                // Loading View
                 VStack(spacing: 20) {
-                    // Location Header
-                    VStack(spacing: 8) {
-                        Text("Emo Village, Co. Laois")
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                        
-                        Text("Forest Fest 2025")
-                            .font(.subheadline)
-                            .foregroundColor(.white.opacity(0.8))
-                    }
-                    .padding(.top)
+                    Spacer()
                     
-                    // Daily Forecast Summary
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("3-Day Forecast")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding(.horizontal)
-                        
-                        ForEach(weatherData, id: \.date) { day in
-                            DailySummaryCard(dayWeather: day)
-                        }
-                    }
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .scaleEffect(1.5)
                     
-                    // Hourly Forecast Details
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("Hourly Forecast")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding(.horizontal)
-                        
-                        ForEach(weatherData, id: \.date) { day in
-                            HourlyForecastCard(dayWeather: day)
-                        }
-                    }
+                    Text("Fetching weather data...")
+                        .font(.headline)
+                        .foregroundColor(.white)
                     
-                    // Weather Tips
-                    WeatherTipsCard()
-                    
-                    Spacer(minLength: 20)
+                    Spacer()
                 }
-                .padding()
+            } else if let errorMessage = weatherService.errorMessage {
+                // Error View
+                VStack(spacing: 20) {
+                    Spacer()
+                    
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .font(.system(size: 50))
+                        .foregroundColor(.orange)
+                    
+                    Text("Weather Unavailable")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                    
+                    Text(errorMessage)
+                        .font(.subheadline)
+                        .foregroundColor(.white.opacity(0.8))
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                    
+                    Button("Try Again") {
+                        weatherService.fetchWeatherData()
+                    }
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.white.opacity(0.2))
+                    .cornerRadius(8)
+                    
+                    Spacer()
+                }
+            } else {
+                // Weather Content
+                ScrollView {
+                    VStack(spacing: 20) {
+                        // Location Header
+                        VStack(spacing: 8) {
+                            Text("Emo Village, Co. Laois")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                            
+                            Text("Forest Fest 2025 - July 25-27")
+                                .font(.subheadline)
+                                .foregroundColor(.white.opacity(0.8))
+                            
+                            Text("Last updated: \(weatherService.lastUpdated.map { DateFormatter.localizedString(from: $0, dateStyle: .short, timeStyle: .short) } ?? "Never")")
+                                .font(.caption)
+                                .foregroundColor(.white.opacity(0.6))
+                                .padding(.top, 4)
+                        }
+                        .padding(.top)
+                        
+                        // Daily Forecast Summary
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("3-Day Forecast")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(.horizontal)
+                            
+                            ForEach(weatherService.weatherData, id: \.date) { day in
+                                DailySummaryCard(dayWeather: day)
+                            }
+                        }
+                        
+                        // Hourly Forecast Details
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Hourly Forecast")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(.horizontal)
+                            
+                            ForEach(weatherService.weatherData, id: \.date) { day in
+                                HourlyForecastCard(dayWeather: day)
+                            }
+                        }
+                        
+                        // Weather Tips
+                        WeatherTipsCard(weatherData: weatherService.weatherData)
+                        
+                        Spacer(minLength: 20)
+                    }
+                    .padding()
+                }
             }
         }
         .background(Color(red: 0.13, green: 0.05, blue: 0.3))
         .navigationBarHidden(true)
+        .onAppear {
+            if weatherService.weatherData.isEmpty {
+                weatherService.fetchWeatherData()
+            }
+        }
     }
 }
 
@@ -305,6 +287,8 @@ struct HourlyForecastCard: View {
 }
 
 struct WeatherTipsCard: View {
+    let weatherData: [DayWeather]
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
@@ -319,10 +303,9 @@ struct WeatherTipsCard: View {
             }
             
             VStack(alignment: .leading, spacing: 8) {
-                WeatherTip(icon: "umbrella.fill", text: "Pack a light rain jacket for Sunday")
-                WeatherTip(icon: "sun.max.fill", text: "Don't forget sunscreen for Saturday")
-                WeatherTip(icon: "thermometer", text: "Evenings can be cool - bring layers")
-                WeatherTip(icon: "water.waves", text: "Stay hydrated throughout the day")
+                ForEach(generateWeatherTips(), id: \.self) { tip in
+                    WeatherTipView(tip: tip)
+                }
             }
         }
         .padding()
@@ -330,20 +313,113 @@ struct WeatherTipsCard: View {
         .cornerRadius(12)
         .padding(.horizontal)
     }
+    
+    private func generateWeatherTips() -> [WeatherTip] {
+        var tips: [WeatherTip] = []
+        
+        // Analyze weather data
+        let allTemps = weatherData.flatMap { day in
+            day.hourlyForecast.map { $0.temp }
+        }
+        let allConditions = weatherData.flatMap { day in
+            day.hourlyForecast.map { $0.condition.lowercased() }
+        }
+        
+        let maxTemp = allTemps.max() ?? 0
+        let minTemp = allTemps.min() ?? 0
+        let hasRain = allConditions.contains { $0.contains("rain") || $0.contains("drizzle") }
+        let hasSunny = allConditions.contains { $0.contains("clear") || $0.contains("sun") }
+        let hasCold = minTemp < 10
+        let hasHot = maxTemp > 25
+        let tempRange = maxTemp - minTemp
+        
+        // Temperature-based tips
+        if hasHot {
+            tips.append(WeatherTip(icon: "thermometer.sun.fill", text: "High temperatures expected - stay hydrated and seek shade"))
+        }
+        
+        if hasCold {
+            tips.append(WeatherTip(icon: "thermometer.snowflake", text: "Cold evenings ahead - bring warm layers"))
+        }
+        
+        if tempRange > 8 {
+            tips.append(WeatherTip(icon: "thermometer", text: "Large temperature swings - dress in layers"))
+        }
+        
+        // Rain-based tips
+        if hasRain {
+            tips.append(WeatherTip(icon: "umbrella.fill", text: "Rain expected - pack waterproof gear"))
+        }
+        
+        // Sun-based tips
+        if hasSunny {
+            tips.append(WeatherTip(icon: "sun.max.fill", text: "Sunny periods - don't forget sunscreen"))
+        }
+        
+        // General festival tips
+        tips.append(WeatherTip(icon: "water.waves", text: "Stay hydrated throughout the festival"))
+        
+        // Add specific day tips
+        for day in weatherData {
+            if day.condition.lowercased().contains("rain") {
+                tips.append(WeatherTip(icon: "calendar.badge.exclamationmark", text: "\(day.dayOfWeek): Rain expected - plan indoor activities"))
+            }
+            
+            if day.highTemp > 20 {
+                tips.append(WeatherTip(icon: "calendar.badge.plus", text: "\(day.dayOfWeek): Warm weather - perfect for outdoor stages"))
+            }
+            
+            // Check for evening temperature drops
+            let eveningTemps = day.hourlyForecast.filter { hour in
+                let hourInt = Int(hour.time.prefix(2)) ?? 12
+                return hourInt >= 20 || hourInt <= 6
+            }.map { $0.temp }
+            
+            if let eveningMin = eveningTemps.min(), eveningMin < 12 {
+                tips.append(WeatherTip(icon: "moon.fill", text: "\(day.dayOfWeek): Cool evenings - bring a jacket"))
+            }
+        }
+        
+        // Weather pattern analysis
+        let rainyDays = weatherData.filter { $0.condition.lowercased().contains("rain") }.count
+        if rainyDays >= 2 {
+            tips.append(WeatherTip(icon: "cloud.rain.fill", text: "Multiple rainy days - consider waterproof footwear"))
+        }
+        
+        let sunnyDays = weatherData.filter { $0.condition.lowercased().contains("clear") || $0.condition.lowercased().contains("sun") }.count
+        if sunnyDays >= 2 {
+            tips.append(WeatherTip(icon: "sun.max.fill", text: "Mostly sunny weekend - perfect festival weather!"))
+        }
+        
+        // Limit to 6 tips to avoid overwhelming
+        return Array(tips.prefix(6))
+    }
 }
 
-struct WeatherTip: View {
+struct WeatherTip: Hashable {
     let icon: String
     let text: String
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(text)
+    }
+    
+    static func == (lhs: WeatherTip, rhs: WeatherTip) -> Bool {
+        return lhs.text == rhs.text
+    }
+}
+
+struct WeatherTipView: View {
+    let tip: WeatherTip
+    
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: icon)
+            Image(systemName: tip.icon)
                 .font(.subheadline)
                 .foregroundColor(.white.opacity(0.8))
                 .frame(width: 20)
             
-            Text(text)
+            Text(tip.text)
                 .font(.subheadline)
                 .foregroundColor(.white.opacity(0.9))
         }

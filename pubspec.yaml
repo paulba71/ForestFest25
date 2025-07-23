@@ -1,0 +1,49 @@
+name: forest_fest_app
+description: "Forest Fest 2025 - Music Festival App"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI and Icons
+  cupertino_icons: ^1.0.8
+  
+  # State Management
+  provider: ^6.1.2
+  
+  # Local Storage
+  shared_preferences: ^2.2.3
+  
+  # Notifications
+  flutter_local_notifications: ^17.2.3
+  
+  # WebView for Event Map
+  webview_flutter: ^4.7.0
+  
+  # HTTP requests for weather API
+  http: ^1.2.1
+  
+  # URL launcher for external links
+  url_launcher: ^6.2.5
+  
+  # Date and time utilities
+  intl: ^0.19.0
+  
+  # JSON serialization
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  json_serializable: ^6.8.0
+  build_runner: ^2.4.13
+
+flutter:
+  uses-material-design: true 
