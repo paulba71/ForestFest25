@@ -197,8 +197,8 @@ struct SettingsView: View {
                         
                         VStack(spacing: 12) {
                             InfoRow(title: "App Version", value: "1.0.0")
-                            InfoRow(title: "Festival", value: "Forest Fest 2025")
-                            InfoRow(title: "Dates", value: "July 25-27, 2025")
+                            InfoRow(title: "Festival", value: "Forest Fest 2026")
+                            InfoRow(title: "Dates", value: "July 24-26, 2026")
                             InfoRow(title: "Location", value: "Emo Village, Co. Laois")
                         }
                     }

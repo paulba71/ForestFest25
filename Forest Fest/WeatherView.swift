@@ -95,7 +95,7 @@ struct WeatherView: View {
                                 .fontWeight(.semibold)
                                 .foregroundColor(.white)
                             
-                            Text("Forest Fest 2025 - July 25-27")
+                            Text("Forest Fest 2026 - July 24-26")
                                 .font(.subheadline)
                                 .foregroundColor(.white.opacity(0.8))
                             

@@ -1,0 +1,131 @@
+.timetable-day-tabs {
+  display: flex;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.timetable-day-tab {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.timetable-day-tab.active {
+  color: white;
+  border-bottom-color: white;
+  font-weight: 600;
+}
+
+.timetable-scroll {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+}
+
+.timetable-grid {
+  min-width: 100%;
+}
+
+.timetable-header-row {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg-primary);
+}
+
+.timetable-corner,
+.timetable-label-offset {
+  flex-shrink: 0;
+}
+
+.timetable-time-labels {
+  position: relative;
+  height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.timetable-time-label {
+  position: absolute;
+  font-size: 0.65rem;
+  font-family: ui-monospace, monospace;
+  color: rgba(255, 255, 255, 0.8);
+  top: 0.75rem;
+}
+
+.timetable-stage-row {
+  display: flex;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 3.5rem;
+}
+
+.timetable-stage-label {
+  flex-shrink: 0;
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.timetable-stage-track {
+  position: relative;
+  flex-shrink: 0;
+  height: 3.5rem;
+}
+
+.timetable-grid-bg {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 60px;
+  height: 100%;
+}
+
+.timetable-slot {
+  height: 100%;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
+}
+
+.timetable-slot.major {
+  border-right-color: rgba(255, 255, 255, 0.15);
+}
+
+.timetable-events {
+  position: absolute;
+  top: 0.35rem;
+  height: calc(100% - 0.7rem);
+}
+
+.timetable-event {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  border-left: 3px solid;
+  border-radius: 4px;
+  padding: 0.2rem 0.35rem;
+  overflow: hidden;
+  font-size: 0.65rem;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.timetable-event.favorited {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(255, 255, 255, 0.15));
+  font-weight: 700;
+  z-index: 2;
+}
+
+.timetable-event-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

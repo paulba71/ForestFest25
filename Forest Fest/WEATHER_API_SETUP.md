@@ -1,8 +1,8 @@
 # Weather API Setup Guide
 
-## Getting Real Weather Data for Forest Fest 2025
+## Getting Real Weather Data for Forest Fest 2026
 
-The Forest Fest app now supports real weather data from OpenWeatherMap API specifically for the festival weekend (July 25-27, 2025).
+The Forest Fest app now supports real weather data from OpenWeatherMap API specifically for the festival weekend (July 24-26, 2026).
 
 ### 1. Get Your Free API Key
 
@@ -32,7 +32,7 @@ The Forest Fest app now supports real weather data from OpenWeatherMap API speci
 
 ### What You'll Get
 
-- **Real 3-day forecast** for Forest Fest weekend (July 25-27, 2025)
+- **Real 3-day forecast** for Forest Fest weekend (July 24-26, 2026)
 - **Actual temperatures** and conditions for Emo Village
 - **Hourly breakdowns** based on real data
 - **Automatic updates** when you refresh
@@ -40,9 +40,9 @@ The Forest Fest app now supports real weather data from OpenWeatherMap API speci
 ### Festival Dates
 
 The weather data is specifically for:
-- **Friday, July 25, 2025**
-- **Saturday, July 26, 2025** 
-- **Sunday, July 27, 2025**
+- **Friday, July 24, 2026**
+- **Saturday, July 25, 2026** 
+- **Sunday, July 26, 2026**
 
 ### Free Tier Limits
 

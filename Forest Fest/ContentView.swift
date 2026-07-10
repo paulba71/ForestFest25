@@ -34,11 +34,11 @@ struct ContentView: View {
                     
                     // Event Details
                     VStack(spacing: 15) {
-                        Text("Forest Fest 2025")
+                        Text("Forest Fest 2026")
                             .font(.system(size: 46, weight: .bold))
                             .foregroundColor(.white)
                         
-                        Text("July 25-27, 2025")
+                        Text("July 24-26, 2026")
                             .font(.system(size: 28))
                             .foregroundColor(.white.opacity(0.8))
                         
@@ -114,6 +114,20 @@ struct ContentView: View {
                                 Image(systemName: "cloud.sun.fill")
                                     .font(.system(size: 24))
                                 Text("Weather")
+                                    .font(.system(size: 24))
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.white.opacity(0.2))
+                            .foregroundColor(.white)
+                            .cornerRadius(15)
+                        }
+                        
+                        NavigationLink(destination: ChecklistView()) {
+                            HStack(spacing: 12) {
+                                Image(systemName: "checklist")
+                                    .font(.system(size: 24))
+                                Text("Packing Checklist")
                                     .font(.system(size: 24))
                             }
                             .frame(maxWidth: .infinity)

@@ -1,0 +1,205 @@
+.checklist-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 0.5rem;
+}
+
+.checklist-progress-ring {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+}
+
+.checklist-progress-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.checklist-ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 3;
+}
+
+.checklist-ring-fill {
+  fill: none;
+  stroke: #22c55e;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.checklist-progress-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.checklist-progress-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.checklist-filters {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0 1rem 0.75rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.checklist-filter {
+  flex-shrink: 0;
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.checklist-filter.active {
+  background: white;
+  color: var(--bg-primary);
+}
+
+.checklist-actions {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem 0.75rem;
+}
+
+.checklist-add-btn,
+.checklist-reset-btn {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.checklist-add-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.checklist-reset-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.checklist-add-form {
+  margin: 0 1rem 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checklist-add-form input {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 0.9rem;
+}
+
+.checklist-add-form-btns {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.checklist-add-form-btns button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.checklist-add-form-btns button[type='submit'] {
+  background: white;
+  color: var(--bg-primary);
+}
+
+.checklist-add-form-btns button[type='button'] {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.checklist-categories {
+  padding: 0 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.checklist-category h3 {
+  color: white;
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem;
+  opacity: 0.9;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 0.35rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checklist-item.packed .checklist-item-name {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.checklist-item.packed .checklist-item-icon {
+  color: #22c55e;
+}
+
+.checklist-item.notNeeded {
+  opacity: 0.5;
+}
+
+.checklist-item-icon {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.6);
+  width: 1.5rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.checklist-item-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.checklist-item-name {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.checklist-item-desc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+}

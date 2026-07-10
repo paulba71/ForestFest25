@@ -1,0 +1,17 @@
+.map-iframe {
+  width: 100%;
+  height: calc(100dvh - 4.5rem);
+  border: none;
+  background: white;
+}
+
+.map-external-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}

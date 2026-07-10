@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     private let ticketPurchaseURL = URL(string: "https://forestfest.ie/tickets")!
-    private let eventMapURL = URL(string: "https://forestfest.ie/sitemap-2025/")!
+    private let eventMapURL = URL(string: "https://forestfest.ie/sitemap-2026/")!
     @State private var showingLineup = false
     @State private var showingMap = false
     
@@ -18,14 +18,14 @@ struct HomeView: View {
                         .padding(.top)
                     
                     // Festival Title
-                    Text("Forest Fest 2025")
+                    Text("Forest Fest 2026")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                     
                     // Date and Location
                     VStack(spacing: 8) {
-                        Text("July 25-27, 2025")
+                        Text("July 24-26, 2026")
                             .font(.title2)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)

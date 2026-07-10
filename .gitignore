@@ -1,0 +1,17 @@
+# Local Netlify folder
+.netlify
+
+# Web app build artifacts and secrets
+forest-fest-web/node_modules/
+forest-fest-web/dist/
+forest-fest-web/.env
+forest-fest-web/.env.local
+forest-fest-web/*.local
+forest-fest-web/tsconfig.tsbuildinfo
+
+# macOS
+.DS_Store
+
+# Flutter legacy / build artifacts
+build/
+.flutter-plugins-dependencies

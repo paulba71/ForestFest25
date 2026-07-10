@@ -301,13 +301,13 @@ class NotificationManager: NSObject, ObservableObject, UNUserNotificationCenterD
             
             // Create a date for the artist's performance
             var components = DateComponents()
-            components.year = 2025
+            components.year = 2026
             components.month = 7
             
             switch artist.performanceDay {
-            case .friday: components.day = 25
-            case .saturday: components.day = 26
-            case .sunday: components.day = 27
+            case .friday: components.day = 24
+            case .saturday: components.day = 25
+            case .sunday: components.day = 26
             }
             
             guard let performanceDate = calendar.date(from: components) else { return false }
@@ -405,18 +405,18 @@ class NotificationManager: NSObject, ObservableObject, UNUserNotificationCenterD
         let calendar = Calendar.current
         let now = Date()
         
-        // Determine the year (assuming 2025 for Forest Fest)
+        // Determine the year (assuming 2026 for Forest Fest)
         var components = DateComponents()
-        components.year = 2025
+        components.year = 2026
         components.month = 7 // July
         
         switch artist.performanceDay {
         case .friday:
-            components.day = 25
+            components.day = 24
         case .saturday:
-            components.day = 26
+            components.day = 25
         case .sunday:
-            components.day = 27
+            components.day = 26
         }
         
         guard let performanceDate = calendar.date(from: components) else { return nil }

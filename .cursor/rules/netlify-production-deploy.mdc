@@ -1,0 +1,26 @@
+---
+description: Deploy Forest Fest web app to Netlify production after changes unless user opts out
+alwaysApply: true
+---
+
+# Netlify production deploy (Forest Fest web)
+
+After completing changes to `forest-fest-web/` that should be live, deploy to production unless the user explicitly says **not** to deploy.
+
+## Default workflow
+
+1. Run `npm run build` in `forest-fest-web/` to verify the build passes.
+2. Deploy from `forest-fest-web/`:
+   ```bash
+   npx netlify deploy --prod --build
+   ```
+3. Confirm the production URL in the response: `https://forest-fest-2026.netlify.app`
+
+## When to skip deploy
+
+Only skip if the user clearly opts out, e.g. "don't deploy", "local only", or "no production deploy".
+
+## Scope
+
+- Applies to the web app in `forest-fest-web/`, not the native iOS app in `Forest Fest/`.
+- Question-only or review-only tasks with no code changes do not need a deploy.
