@@ -3,7 +3,7 @@ import WebKit
 
 struct EventMapView: View {
     @Environment(\.presentationMode) var presentationMode
-    private let mapURL = URL(string: "https://forestfest.ie/sitemap-2025/")!
+    private let mapURL = URL(string: "https://forestfest.ie/sitemap-2026/")!
     
     var body: some View {
         VStack(spacing: 0) {

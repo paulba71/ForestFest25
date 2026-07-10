@@ -18,11 +18,11 @@ class WeatherService: ObservableObject {
     private let latitude = 53.0869
     private let longitude = -7.3375
     
-    // Forest Fest 2025 dates
+    // Forest Fest 2026 dates
     private let festivalDates = [
-        "2025-07-25", // Friday
-        "2025-07-26", // Saturday  
-        "2025-07-27"  // Sunday
+        "2026-07-24", // Friday
+        "2026-07-25", // Saturday
+        "2026-07-26"  // Sunday
     ]
     
     init() {
@@ -133,7 +133,7 @@ class WeatherService: ObservableObject {
         
         // If we don't have data for festival dates, show appropriate message
         if weatherData.isEmpty {
-            errorMessage = "Weather forecast not available for Forest Fest dates (July 25-27, 2025).\n\nThe free weather API only provides 5-day forecasts. For festival planning, check closer to the event date or use a premium weather service."
+            errorMessage = "Weather forecast not available for Forest Fest dates (July 24-26, 2026).\n\nThe free weather API only provides 5-day forecasts. For festival planning, check closer to the event date or use a premium weather service."
         }
     }
     

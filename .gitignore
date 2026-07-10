@@ -11,3 +11,7 @@ forest-fest-web/tsconfig.tsbuildinfo
 
 # macOS
 .DS_Store
+
+# Flutter legacy / build artifacts
+build/
+.flutter-plugins-dependencies
